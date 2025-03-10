@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 4 - Assignment</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <!-- Main Heading-->
+        <header>
+            <h1 id="heading">INST377 - Lab 4</h1>
+        </header>
+
+        <!-- Container for sections -->
+        <div class="container">
+            <!-- Alert me section -->
+            <section class="section">
+                <form id="alertMe">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" required>
+                    <button type="button" onclick="alertName()">Alert Me!</button>
+                </form> 
+            </section>
+
+            <!-- Change color section-->
+            <section class="section">
+                <button type="button" onclick="changeColor()">Change Color</button>
+            </section>
+
+            <!-- Text tester section-->
+            <section class="section">
+                <form id="textTest">
+                    <label for="testing">Text Tester: </label>
+                    <input type="text" id="testing">
+                    <button type="button" onclick="validateText()">Validate Text</button>
+                </form> 
+            </section>
+
+            <!-- Add text section -->
+            <section class="section">
+                <button type="button" onclick="addText()">Add Text</button>
+            </section>
+        </div>
+ 
+
+        <!-- JavaScript-->
+         <script>
+            function alertName(){
+                let name = document.getElementById("name").value;
+                alert("Hi " + name + "!");
+            }
+
+            let isBlue = true;
+            function changeColor(){
+                if (isBlue) {
+                    document.body.style.backgroundColor= "lightgreen";
+                } else {
+                    document.body.style.backgroundColor= "lightblue";
+                }
+                isBlue = !isBlue;
+            }
+
+            function validateText(){
+                let text = document.getElementById("testing").value;
+                let validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+                if (validation.test(text)) {
+                    alert("Special characters are not allowed!");
+                } else {
+                    alert("Text is valid!");
+                }
+            }
+
+            function addText() {
+                let heading = document.getElementById("heading");
+                heading.innerHTML += " Add Text";
+            }
+        </script>
+    </body>
+</html>
